@@ -1,5 +1,5 @@
 def make_abc():
-    result = "a", "b", "c"
+    result = "a, b, c"
     return result
 
 print("Demonstrate make abc")
@@ -88,3 +88,62 @@ def mostly_true(list1):
 print("Demonstrate mostly_true")
 print("[true, true, false] = ", mostly_true([True, True, False]))
 print("[false, false, true] = ", mostly_true([False, False, True]))
+
+
+def make_copy(list1):
+    word1, word2, word3 = list1
+    
+    word1 = list1[0]
+    word2 = list1[1]
+    word3 = list1[2]
+    return list1
+
+print("Demonstrate make_copy")
+print("[5, 6, 1] = ",  make_copy([5, 6, 1]))
+
+
+def repeat_thrice(list1):
+    word1 = max(list1)
+    return [word1, word1, word1]
+
+print("Demonstrate repeat_thrice")
+original_list = [1]
+new_list = repeat_thrice(original_list)
+print("original list: ", original_list)
+print("new list: ", new_list)
+
+
+def make_reversed_copy(list1):
+    word1, word2, word3 = list1
+
+    word1 = list1[0]
+    word2 = list1[1]
+    word3 = list1[2]
+
+    if word1 == list1[2] and word2 == list1[1] and word3 == list1[0]:
+        return [word3, word2, word1]
+    
+print("Demonstrate make_reversed_copy")
+original_list = [1, 2, 3]
+new_list = [3, 2, 1]
+print("original list: ", original_list)
+print("new list: ", new_list)
+
+
+
+def reverse_in_place(list1):
+    word1, word2, word3 = list1
+
+
+    word1 = list1[0]
+    word2 = list1[1]
+    word3 = list1[2]
+
+    if word1 == list1[2] and word2 == list1[1] and word3 == list1[0]:
+        return [word3, word2, word1]
+    
+print("Demonstrate reverse_in_place")
+original_list = [1, 4, 3]
+new_list = [4, 3, 1]
+print("original list: ", original_list)
+print("new list: ", new_list)
