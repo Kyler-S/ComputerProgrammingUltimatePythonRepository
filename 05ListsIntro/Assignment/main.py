@@ -116,16 +116,16 @@ print("new list: ", new_list)
 def make_reversed_copy(list1):
     word1, word2, word3 = list1
 
-    word1 = list1[0]
+    word3 = list1[0]
     word2 = list1[1]
-    word3 = list1[2]
+    word1 = list1[2]
 
-    if word1 == list1[2] and word2 == list1[1] and word3 == list1[0]:
-        return [word3, word2, word1]
-    
+    return [word1, word2, word3]
+
+
 print("Demonstrate make_reversed_copy")
 original_list = [1, 2, 3]
-new_list = [3, 2, 1]
+new_list = make_reversed_copy(original_list)
 print("original list: ", original_list)
 print("new list: ", new_list)
 
@@ -135,15 +135,13 @@ def reverse_in_place(list1):
     word1, word2, word3 = list1
 
 
-    word1 = list1[0]
-    word2 = list1[1]
-    word3 = list1[2]
+    word3 = list1[0]
+    word1 = list1[2]
 
-    if word1 == list1[2] and word2 == list1[1] and word3 == list1[0]:
-        return [word3, word2, word1]
+    return [word1, word2, word3]
     
 print("Demonstrate reverse_in_place")
 original_list = [1, 4, 3]
-new_list = [4, 3, 1]
+new_list = reverse_in_place(original_list)
 print("original list: ", original_list)
 print("new list: ", new_list)
