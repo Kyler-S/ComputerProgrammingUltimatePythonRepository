@@ -43,15 +43,17 @@ print(returnvalue)
 
 def average_act_score(list):
     total = 0
-    for numbers in list:
-        if numbers in [10, 9, 8, 7, 6]:
-            total = total + numbers
+    count = 0
+    for number in list:
+        if number <= 35 and number > 1:
+            total = total + number
+            count = count + 1
         
-    return total / len(list)
+    return total / count
     
 
 
-inputlist = [5, 7, 6, 3, 3]
+inputlist = [-1, 100, 35, 30, 25, 55, 104]
 returnvalue = average_act_score(inputlist)
 print("This is the average ACT score")
-print(returnvalue, "%")
+print(returnvalue)
