@@ -61,7 +61,10 @@ print(returnvalue)
 
 def all_true(list):
     for boolean in list:
+        if boolean in [False]:
+            return False
     return True
+
 
 print("Demonstrate all_true")
 print("[true, true, false] = ", all_true([True, True, False]))
@@ -78,23 +81,23 @@ print("[false, false, true] = ", any_true([False, False, True]))
 print("[false, false, false] = ", any_true([False, False, False]))
 
 def mostly_true(list):
-    word1, word2, word3 = list
+    for boolean in list:
+        if boolean in [True, True]:
+            return True
+    return False
 
-    word1 = list[0]
-    word2 = list[1]
-    word3 = list[2]
-
-    if word1 == True and word2 == True and word3 == False:
-        return True
-    elif word1 == True and word2 == False and word3 == True:
-        return True
-    elif word1 == False and word2 == False and word3 == True:
-        return False
-    elif word1 == False and word2 == True and word3 == True:
-        return True
-    elif word1 == False and word2 == True and word3 == False:
-        return False
-    
 print("Demonstrate mostly_true")
-print("[true, true, false] = ", mostly_true([True, True, False]))
-print("[false, false, true] = ", mostly_true([False, False, True]))
+print("[false, true, true] = ", mostly_true([False, True, True]))
+print("[false, false, false] = ", mostly_true([False, False, False]))
+print("[true, true, true, false, flase] = ", mostly_true([True, True, True, False, False]))
+
+
+def has_vowels(list):
+    for letter in list:
+        if letter in ["a", "e", "i", "o", "u"]:
+            return True
+    return False
+
+print("Demonstrate has_vowels")
+print("[a, e, a, i, u, o]", has_vowels(["a", "e", "a", "i", "u", "o"]))
+print("[a, e, s] = ", has_vowels(["a", "e", "s"]))
