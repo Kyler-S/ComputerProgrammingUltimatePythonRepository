@@ -1,13 +1,13 @@
 def count_failing_grades(list):
     count = 0
     for numbers in list:
-        if numbers in ["60%", "55%", "50%", "45%", "40%", "35%", "30%", "25%", "20%", "15%", "10%"]:
+        if numbers < 60:
             count = count + 1
 
 
     return count
 
-inputlist = ["60%", "55%", "50%", "80%", "65%"]
+inputlist = [50, 70, 80]
 returnvalue = count_failing_grades(inputlist)
 print("This many people have failing grades")
 print(returnvalue)
@@ -16,13 +16,13 @@ print(returnvalue)
 def count_act_score(list):
     count = 0
     for numbers in list:
-        if numbers in ["65%", "70%", "75%", "80%", "85%", "90%", "95%", "100%"]:
+        if numbers <= 36 and numbers >= 1:
             count = count + 1
 
 
     return count
 
-inputlist = ["75%", "80%", "55%", "65%", "10%", "90%", "95%", "100%", "50%", "60%"]
+inputlist = [36, 35, 1, 0, 37]
 returnvalue = count_act_score(inputlist)
 print("This many people have a valid ACT score")
 print(returnvalue)
@@ -35,7 +35,7 @@ def number_sum(numbers):
 
     return total
 
-inputlist = [4, 3, 6, 9]
+inputlist = [100, 200, 300, 400, 500, 600, 700]
 returnvalue = number_sum(inputlist)
 print("This is the total")
 print(returnvalue)
@@ -45,15 +45,18 @@ def average_act_score(list):
     total = 0
     count = 0
     for number in list:
-        if number <= 35 and number > 1:
+        if number <= 36 and number >= 1:
             total = total + number
             count = count + 1
         
+    if count == 0:
+        return None
+    
     return total / count
     
 
 
-inputlist = [-1, 100, 35, 30, 25, 55, 104]
+inputlist = [36, 35, 1, 0, 37]
 returnvalue = average_act_score(inputlist)
 print("This is the average ACT score")
 print(returnvalue)
@@ -67,7 +70,7 @@ def all_true(list):
 
 
 print("Demonstrate all_true")
-print("[true, true, false] = ", all_true([True, True, False]))
+print("[true, false, true] = ", all_true([True, False, True]))
 print("[true, true, true] = ", all_true([True, True, True]))
 
 def any_true(list):
@@ -77,7 +80,7 @@ def any_true(list):
     return False
 
 print("Demonstrate any_true")
-print("[false, false, true] = ", any_true([False, False, True]))
+print("[, false, false] = ", any_true([True, False, False]))
 print("[false, false, false] = ", any_true([False, False, False]))
 
 def mostly_true(list):
@@ -87,7 +90,6 @@ def mostly_true(list):
     return False
 
 print("Demonstrate mostly_true")
-print("[false, true, true] = ", mostly_true([False, True, True]))
 print("[false, false, false] = ", mostly_true([False, False, False]))
 print("[true, true, true, false, flase] = ", mostly_true([True, True, True, False, False]))
 
@@ -99,5 +101,16 @@ def has_vowels(list):
     return False
 
 print("Demonstrate has_vowels")
-print("[a, e, a, i, u, o]", has_vowels(["a", "e", "a", "i", "u", "o"]))
-print("[a, e, s] = ", has_vowels(["a", "e", "s"]))
+print("[a, b, c] = ", has_vowels(["a", "b", "c"]))
+print("[d, e, f] = ", has_vowels(["d", "e", "f"]))
+
+
+def all_the_same(list):
+    for number in list:
+        if number in [1, 1, 1]:
+            return False
+    return True
+
+print("Demonstrate all_the_same")
+print("[1, 1, 1] = ", all_the_same([1, 1, 1]))
+print("[1, 2, 3] = ", all_the_same([1, 2, 3]))
