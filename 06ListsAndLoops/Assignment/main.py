@@ -70,8 +70,8 @@ def all_true(list):
 
 
 print("Demonstrate all_true")
-print("[true, false, true] = ", all_true([True, False, True]))
-print("[true, true, true] = ", all_true([True, True, True]))
+print("true, false, true = ", all_true([True, False, True]))
+print("true, true, true = ", all_true([True, True, True]))
 
 def any_true(list):
     for boolean in list:
@@ -80,8 +80,8 @@ def any_true(list):
     return False
 
 print("Demonstrate any_true")
-print("[, false, false] = ", any_true([True, False, False]))
-print("[false, false, false] = ", any_true([False, False, False]))
+print("true, false, false = ", any_true([True, False, False]))
+print("false, false, false = ", any_true([False, False, False]))
 
 def mostly_true(list):
     for boolean in list:
@@ -90,8 +90,8 @@ def mostly_true(list):
     return False
 
 print("Demonstrate mostly_true")
-print("[false, false, false] = ", mostly_true([False, False, False]))
-print("[true, true, true, false, flase] = ", mostly_true([True, True, True, False, False]))
+print("false, false, false = ", mostly_true([False, False, False]))
+print("true, true, true, false, flase = ", mostly_true([True, True, True, False, False]))
 
 
 def has_vowels(list):
@@ -101,8 +101,8 @@ def has_vowels(list):
     return False
 
 print("Demonstrate has_vowels")
-print("[a, b, c] = ", has_vowels(["a", "b", "c"]))
-print("[d, e, f] = ", has_vowels(["d", "e", "f"]))
+print("a, b, c = ", has_vowels(["a", "b", "c"]))
+print("d, e, f = ", has_vowels(["d", "e", "f"]))
 
 
 def all_the_same(list):
@@ -113,8 +113,8 @@ def all_the_same(list):
     return True
 
 print("Demonstrate all_the_same")
-print("[1, 1, 1] = ", all_the_same([1, 1, 1]))
-print("[1, 2, 3] = ", all_the_same([1, 2, 3]))
+print("1, 1, 1 = ", all_the_same([1, 1, 1]))
+print("1, 2, 3 = ", all_the_same([1, 2, 3]))
 
 
 def increasing(list):
@@ -126,21 +126,47 @@ def increasing(list):
     return True
     
 print("Demonstrate increasing")
-print("[1, 2, 3] = ", increasing([1, 2, 3]))
-print("[3, 2, 1] = ", increasing([3, 2, 1]))
-print("[1, 2, 3, 2] = ", increasing([1, 2, 3, 2]))
+print("1, 2, 3 = ", increasing([1, 2, 3]))
+print("3, 2, 1 = ", increasing([3, 2, 1]))
+print("1, 2, 3, 2 = ", increasing([1, 2, 3, 2]))
 
 
 def is_incrementing(list):
-    number = list[0]+1
+    previous = list[0]-1
     for num in list:
-        if num == number:
+        if num == previous+1:
+            pass
+        else:
             return False
-        num = number+1
+        previous = num
     return True
     
 print("Demonstrate is_incrementing")
-print("[1, 2, 3] = ", is_incrementing([1, 2, 3]))
-print("[1, 3, 5] = ", is_incrementing([1, 3, 5]))
-print("[1, 2, 3, 4, 5] = ", is_incrementing([1, 2, 3, 4, 5]))
-print("[2, 3, 4, 6, 7] = ", is_incrementing([2, 3, 4, 6, 7]))
+print("1, 2, 3 = ", is_incrementing([1, 2, 3]))
+print("1, 3, 5 = ", is_incrementing([1, 3, 5]))
+print("1, 2, 3, 4, 5 = ", is_incrementing([1, 2, 3, 4, 5]))
+print("2, 3, 4, 6, 7 = ", is_incrementing([2, 3, 4, 6, 7]))
+
+def has_adjacent_repeat(list):
+    for num in range(len(list) - 1):
+        if list[num] == list[num + 1]:
+            return True
+    return False
+
+print("Demonstrate has_adjacent_repeat")
+print("1, 2, 2, 3 = ", has_adjacent_repeat([1, 2, 2, 3]))
+print("1, 2, 3, 4 = ", has_adjacent_repeat([1, 2, 3, 4]))
+
+def sum_with_skips(list):
+    total = 0
+    ignoring = False
+    for num in list:
+        if num == -1:
+            ignoring = not ignoring
+        elif not ignoring:
+            total = total + num
+    return total
+
+print("Demonstrate sum_with_skips")
+print("1, 2, 3, -1, 4, 5, 6, -1, 7 = ", sum_with_skips([1, 2, 3, -1, 4, 5, 6, -1, 7]))
+print("1, -1, 2, -1, 3 = ", sum_with_skips([1, -1, 2, -1, 3]))
