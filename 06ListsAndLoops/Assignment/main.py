@@ -106,11 +106,41 @@ print("[d, e, f] = ", has_vowels(["d", "e", "f"]))
 
 
 def all_the_same(list):
-    for number in list:
-        if number in [1, 1, 1]:
+    first = list[0]
+    for num in list:
+        if num != first:
             return False
     return True
 
 print("Demonstrate all_the_same")
 print("[1, 1, 1] = ", all_the_same([1, 1, 1]))
 print("[1, 2, 3] = ", all_the_same([1, 2, 3]))
+
+
+def increasing(list):
+    previous = -9999999999999999
+    for num in list:
+        if num <= previous:
+            return False
+        previous = num
+    return True
+    
+print("Demonstrate increasing")
+print("[1, 2, 3] = ", increasing([1, 2, 3]))
+print("[3, 2, 1] = ", increasing([3, 2, 1]))
+print("[1, 2, 3, 2] = ", increasing([1, 2, 3, 2]))
+
+
+def is_incrementing(list):
+    number = list[0]+1
+    for num in list:
+        if num == number:
+            return False
+        num = number+1
+    return True
+    
+print("Demonstrate is_incrementing")
+print("[1, 2, 3] = ", is_incrementing([1, 2, 3]))
+print("[1, 3, 5] = ", is_incrementing([1, 3, 5]))
+print("[1, 2, 3, 4, 5] = ", is_incrementing([1, 2, 3, 4, 5]))
+print("[2, 3, 4, 6, 7] = ", is_incrementing([2, 3, 4, 6, 7]))
