@@ -48,10 +48,19 @@ def number_guesser_with_lives(lives):
 number_guesser_with_lives("lives=") 
 
 
-print("Your on vending machine")
-def vending_machine(coins):
-    total = 50
-    if coins in [25, 10, 5]:
-        total = total - coins
-        print(f"You have {coins} inser coin")
-vending_machine("coins: ")
+print("You are now on vending_machine")
+def vending_machine():
+    cost = 50
+    amount_due = cost
+    print(f"Amount due: {amount_due} cents")
+    while amount_due > 0:
+        coin = int(input("Enter a coin (25, 10, or 5): "))
+        if coin in [25, 10, 5]:
+            amount_due -= coin
+            print(f"Amount due: {amount_due} cents")
+        else:
+            print("Invalid coin. Please enter a valid coin.")
+    change = -amount_due
+    print(f"Here is your change: {change} cents")
+
+vending_machine()
